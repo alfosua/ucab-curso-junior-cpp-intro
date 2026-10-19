@@ -196,6 +196,29 @@ function renderHome() {
     }
   }
 
+  const mobilePlan = COURSE.chapters.map(chapter => `
+    <section class="mobile-chapter" aria-labelledby="mobile-chapter-${chapter.id}">
+      <h3 id="mobile-chapter-${chapter.id}">${ICONS.book}${escapeHtml(chapter.title)}</h3>
+      <ol class="mobile-topic-list">
+        ${chapter.topics.map(topic => `
+          <li>
+            <button class="mobile-topic" data-open-topic="${topic.id}" type="button">
+              <span class="mobile-topic__heading">
+                <span class="col-num">${String(topic.num).padStart(2, "0")}</span>
+                <span class="mobile-topic__title">${escapeHtml(topic.title)}</span>
+              </span>
+              <span class="mobile-topic__description">${escapeHtml(topic.description)}</span>
+              <span class="mobile-topic__footer">
+                ${pillForStatus(getStatus(topic.id))}
+                <span class="mobile-topic__open">Abrir ${ICONS.arrowRight}</span>
+              </span>
+            </button>
+          </li>
+        `).join("")}
+      </ol>
+    </section>
+  `).join("");
+
   return `
     <main class="home">
       <div class="home-hero">
@@ -225,7 +248,7 @@ function renderHome() {
         <h2>Plan de Estudio Detallado</h2>
       </div>
 
-      <div class="plan-card" tabindex="0" role="region" aria-label="Plan de estudio; desplázate horizontalmente para ver todas las columnas">
+      <div class="plan-card plan-card--desktop" tabindex="0" role="region" aria-label="Plan de estudio; desplázate horizontalmente para ver todas las columnas">
         <table class="plan-table">
           <thead>
             <tr>
@@ -240,6 +263,8 @@ function renderHome() {
           </tbody>
         </table>
       </div>
+
+      <div class="mobile-course-plan">${mobilePlan}</div>
 
       <footer class="home-footer">
         <div>Creado por <strong>Alfonso Suarez</strong> · <a href="https://alfosua.com" target="_blank" rel="noopener">alfosua.com</a></div>

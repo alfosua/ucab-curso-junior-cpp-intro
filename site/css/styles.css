@@ -342,6 +342,60 @@ main.home {
 }
 
 /* ============ Plan table ============ */
+.mobile-course-plan {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .plan-card--desktop { display: none; }
+  .mobile-course-plan { display: block; }
+  .mobile-chapter + .mobile-chapter { margin-top: 1.75rem; }
+  .mobile-chapter h3 {
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    margin: 0 0 .85rem;
+    font-size: 1rem;
+    line-height: 1.45;
+    color: var(--slate-900);
+  }
+  .mobile-chapter h3 svg {
+    flex: 0 0 1.15rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: .15rem;
+    color: var(--indigo-700);
+  }
+  .mobile-topic-list {
+    display: grid;
+    gap: .75rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .mobile-topic {
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-xl);
+    background: var(--white);
+    text-align: left;
+    font: inherit;
+    cursor: pointer;
+  }
+  .mobile-topic:hover { background: var(--slate-50); }
+  .mobile-topic:focus-visible { outline: 2px solid var(--indigo-600); outline-offset: 3px; }
+  .mobile-topic__heading { display: flex; gap: .75rem; align-items: baseline; }
+  .mobile-topic__title { font-weight: 600; color: var(--slate-900); line-height: 1.4; }
+  .mobile-topic__description { font-size: .875rem; line-height: 1.5; color: var(--slate-500); }
+  .mobile-topic__footer { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+  .mobile-topic__open { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; font-weight: 600; color: var(--indigo-700); }
+  .mobile-topic__open svg { width: 1rem; height: 1rem; }
+}
+
 .plan-card {
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-xl);
