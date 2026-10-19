@@ -1,0 +1,19 @@
+# Binaries and build artifacts
+*.o
+*.a
+*.so
+pipboy
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo

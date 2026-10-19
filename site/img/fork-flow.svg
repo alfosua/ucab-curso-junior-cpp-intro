@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 560" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo del padre y del hijo con fork, execvp y waitpid</title>
+  <desc id="desc">fork devuelve un PID positivo al padre y cero al hijo. El padre espera con waitpid; el hijo prepara argv y ejecuta execvp. Si tiene éxito corre otro programa; si falla termina con _exit(127). La terminación del hijo desbloquea al padre, que recoge el resultado y vuelve al HUD. Si fork falla, no hay hijo.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10" fill="none" stroke="#475569" stroke-width="1.5"/></marker></defs>
+  <rect width="1120" height="560" rx="20" fill="#f8fafc"/>
+  <g fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)">
+    <path d="M560 72V94H275V128"/><path d="M560 94H805V128"/>
+    <path d="M275 189V226"/><path d="M805 189V226"/>
+    <path d="M805 282V300H657V329"/><path d="M805 300H957V329"/>
+    <path d="M657 385V410H805V444"/><path d="M957 385V410H805"/>
+    <path d="M275 310V444"/>
+    <path d="M697 475H460" stroke-dasharray="7 6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" text-anchor="middle">
+    <rect x="410" y="16" width="300" height="56" rx="12" fill="#0f172a"/>
+    <text x="560" y="51" fill="white" font-size="23" font-weight="700">Pip-Boy → fork()</text>
+    <rect x="100" y="128" width="350" height="61" rx="12" fill="#059669"/>
+    <text x="275" y="166" fill="white" font-size="24" font-weight="700">PADRE · pid &gt; 0</text>
+    <rect x="630" y="128" width="350" height="61" rx="12" fill="#2563eb"/>
+    <text x="805" y="166" fill="white" font-size="24" font-weight="700">HIJO · pid == 0</text>
+    <rect x="100" y="226" width="350" height="84" rx="12" fill="#d1fae5" stroke="#059669"/>
+    <text x="275" y="258" fill="#064e3b" font-size="22" font-weight="700">waitpid(pid, &amp;status, 0)</text>
+    <text x="275" y="289" fill="#064e3b" font-size="19">Espera y recoge la terminación</text>
+    <rect x="615" y="226" width="380" height="56" rx="12" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="805" y="261" fill="#1e3a8a" font-size="22">Preparar argv → execvp(...)</text>
+    <rect x="532" y="329" width="250" height="56" rx="12" fill="#dbeafe" stroke="#2563eb"/>
+    <text x="657" y="351" fill="#1e3a8a" font-size="19" font-weight="700">ÉXITO: otro programa</text>
+    <text x="657" y="375" fill="#1e3a8a" font-size="17">execvp no retorna</text>
+    <rect x="832" y="329" width="250" height="56" rx="12" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="957" y="351" fill="#991b1b" font-size="19" font-weight="700">ERROR: execvp retorna</text>
+    <text x="957" y="375" fill="#991b1b" font-size="17">Mostrar causa → _exit(127)</text>
+    <rect x="697" y="444" width="290" height="62" rx="12" fill="#e2e8f0"/>
+    <text x="842" y="481" fill="#0f172a" font-size="21">El hijo termina</text>
+    <rect x="90" y="444" width="370" height="62" rx="12" fill="#d1fae5" stroke="#059669"/>
+    <text x="275" y="470" fill="#064e3b" font-size="20" font-weight="700">Interpretar status → ENTER</text>
+    <text x="275" y="495" fill="#064e3b" font-size="19">Mensaje → REPL → HUD</text>
+    <text x="576" y="459" fill="#475569" font-size="16">desbloquea</text>
+    <text x="560" y="541" fill="#991b1b" font-size="19">Si fork devuelve −1: no se crea hijo; informar el error y volver al REPL.</text>
+  </g>
+</svg>
