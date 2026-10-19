@@ -115,6 +115,6 @@ def build_holotape_chapter(slide, topic, code, function, check, checkpoint):
                     dict(icon="whatsapp", value="+58 424 927 4197", url="https://wa.me/584249274197"),
                     dict(icon="github", value="github.com/alfosua/ucab-pipboy-bios", url="https://github.com/alfosua/ucab-pipboy-bios"),
                     dict(icon="web", value="alfosua.com", url="https://alfosua.com"),
-                    dict(icon="email", value="alfonso.suarez@ucab.edu.ve", url="mailto:alfonso.suarez@ucab.edu.ve")]))
+                    dict(icon="email", value="assuarez.25@est.ucab.edu.ve", url="mailto:assuarez.25@est.ucab.edu.ve")]))
         )
     ])

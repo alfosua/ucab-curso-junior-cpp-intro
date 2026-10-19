@@ -2737,8 +2737,8 @@ const COURSE = {
                   },
                   {
                     "icon": "email",
-                    "value": "alfonso.suarez@ucab.edu.ve",
-                    "url": "mailto:alfonso.suarez@ucab.edu.ve"
+                    "value": "assuarez.25@est.ucab.edu.ve",
+                    "url": "mailto:assuarez.25@est.ucab.edu.ve"
                   }
                 ]
               }
