@@ -345,7 +345,11 @@ main.home {
 .plan-card {
   border: 1px solid var(--slate-200);
   border-radius: var(--radius-xl);
-  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .plan-table {
@@ -356,6 +360,12 @@ main.home {
 /* Las firmas permanecen completas; en pantallas pequeñas la tabla se desplaza. */
 .slide-table-card {
   overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .plan-table {
+    min-width: 640px;
+  }
 }
 
 .slide-sources {
@@ -1542,14 +1552,8 @@ code-window {
   .home__head h2 {
     font-size: 1.25rem;
   }
-  .plan-table thead {
-    display: none;
-  }
   .plan-table td {
     padding: 0.6rem 0.75rem;
-  }
-  .col-desc {
-    display: none;
   }
   .overlay__content {
     padding: 1rem;

@@ -225,7 +225,7 @@ function renderHome() {
         <h2>Plan de Estudio Detallado</h2>
       </div>
 
-      <div class="plan-card">
+      <div class="plan-card" tabindex="0" role="region" aria-label="Plan de estudio; desplázate horizontalmente para ver todas las columnas">
         <table class="plan-table">
           <thead>
             <tr>
@@ -375,7 +375,7 @@ function renderSlideContent(slide, topic) {
 
   if (slide.table) {
     html += `
-      <div class="plan-card slide-table-card" style="margin-top:1.25rem;">
+      <div class="plan-card slide-table-card" tabindex="0" role="region" aria-label="${escapeHtml(slide.title)}; desplázate horizontalmente para ver todas las columnas" style="margin-top:1.25rem;">
         <table class="plan-table${slide.table.nowrapFirstColumn ? " slide-table--syntax" : ""}">
           <thead>
             <tr>${slide.table.headers.map((h) => `<th>${escapeHtml(h)}</th>`).join("")}</tr>
